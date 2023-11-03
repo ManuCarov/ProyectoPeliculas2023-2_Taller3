@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from movie.models import Movie
+from recomendaciones.models import Recomendaciones
 import json
 import os
 import numpy as np
@@ -17,7 +17,7 @@ class Command(BaseCommand):
         for movie in movies:
             emb = movie['embedding']
             emb_binary = np.array(emb).tobytes()
-            item = Movie.objects.filter(title = movie['title']).first()
+            item = Recomendaciones.objects.filter(title = movie['title']).first()
             item.emb = emb_binary
             item.save()
         

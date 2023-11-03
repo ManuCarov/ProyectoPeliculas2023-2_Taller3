@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from movie.models import Movie
+from recomendaciones.models import Recomendaciones
 import os
 import numpy as np
 
@@ -17,7 +17,7 @@ class Command(BaseCommand):
         _ = load_dotenv('../openAI.env')
         openai.api_key  = os.environ['openAI_api_key']
         
-        items = Movie.objects.all()
+        items = Recomendaciones.objects.all()
 
         req = "película de la segunda guerra mundial"
         emb_req = get_embedding(req,engine='text-embedding-ada-002')

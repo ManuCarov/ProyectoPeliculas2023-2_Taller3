@@ -28,7 +28,7 @@ SECRET_KEY = '2hl5684eyz&6jd+3-rx=vg8enjb+d=f06p^lt^z%%nel1qds_q'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['34.16.74.70']
 
 
 # Application definition
@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'movie',
     'news',
     'accounts',
+    'recomendaciones',
 ]
 
 MIDDLEWARE = [

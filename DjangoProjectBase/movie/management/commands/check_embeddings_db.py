@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from movie.models import Movie
+from recomendaciones.models import Recomendaciones
 import json
 import os
 import numpy as np
@@ -9,7 +9,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
   
-        items = Movie.objects.all()
+        items = Recomendaciones.objects.all()
         item = items[10]
         print(item.emb)
         

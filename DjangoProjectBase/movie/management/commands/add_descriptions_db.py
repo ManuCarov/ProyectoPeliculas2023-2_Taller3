@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from movie.models import Movie
+from recomendaciones.models import Recomendaciones
 import json
 import os
 import numpy as np
@@ -20,9 +20,9 @@ class Command(BaseCommand):
         # Add products to the database
         cont = 0
         for movie in movies:
-            exist = Movie.objects.filter(title = movie['title']).first() #Se asegura que la película no exista en la base de datos
+            exist = Recomendaciones.objects.filter(title = movie['title']).first() #Se asegura que la película no exista en la base de datos
             if not exist:              
                 cont+=1
-                Movie.objects.create(title = movie['title'], description = movie['description'], image = 'movie/images/default.jpg')        
+                Recomendaciones.objects.create(title = movie['title'], description = movie['description'], image = 'movie/images/default.jpg')        
         
         self.stdout.write(self.style.SUCCESS(f'Successfully added {cont} products to the database'))
